@@ -1,8 +1,8 @@
 <template>
   <div>
-    <page-large v-if="this.$vuetify.breakpoint.lg"></page-large>
-    <page-medium v-else-if="this.$vuetify.breakpoint.md"></page-medium>
-    <page-small v-else></page-small>
+    <page-large v-if="this.$vuetify.breakpoint.lgAndUp"></page-large>
+    <page-small v-else-if="smAndDown"></page-small>
+    <page-medium v-else></page-medium>
   </div>
 </template>
 

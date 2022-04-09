@@ -9,7 +9,7 @@
             src="~/static/images/arrow.svg"
           />
         </v-col>
-        <v-col cols="3" style="z-index: 1" class="mt-5 mr-5">
+        <v-col cols="4" style="z-index: 1" class="mt-5 mr-5">
           <img
             class="mt-5 maxx-funcionarios"
             src="~/static/images/maxx-funcionarios.png"
@@ -36,7 +36,7 @@
             viver a vida que precisa.
           </p>
         </v-col>
-        <v-col cols="6" style="z-index: 0">
+        <v-col style="z-index: 0">
           <img
             class="arrow-right"
             width="27.5%"
