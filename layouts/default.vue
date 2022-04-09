@@ -1,14 +1,14 @@
 <template>
   <v-app>
     <v-app-bar color="#FF6623" :clipped-left="clipped" fixed app>
-      <AppBarTop v-if="this.$vuetify.breakpoint.lg" />
-      <AppBarTopMdSm v-else-if="this.$vuetify.breakpoint.md" />
-      <AppBarTopSm v-else />
+      <AppBarTop v-if="this.$vuetify.breakpoint.lgAndUp" />
+      <AppBarTopSm v-else-if="this.$vuetify.breakpoint.smAndDown" />
+      <AppBarTopMdSm v-else />
     </v-app-bar>
     <v-app-bar style="margin-top: 55px" :clipped-left="clipped" fixed app>
-      <AppBarBaixo v-if="this.$vuetify.breakpoint.lg" />
-      <AppBarBaixoMdSm v-else-if="this.$vuetify.breakpoint.md" />
-      <AppBarBaixoSm v-else />
+      <AppBarBaixo v-if="this.$vuetify.breakpoint.lgAndUp" />
+      <AppBarBaixoMdSm v-else />
+      <AppBarBaixoSm v-else-if="this.$vuetify.breakpoint.smAndDown" />
     </v-app-bar>
     <v-main>
       <Nuxt />
