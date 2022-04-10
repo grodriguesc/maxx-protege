@@ -2,21 +2,26 @@
   <v-app>
     <v-app-bar color="#FF6623" :clipped-left="clipped" fixed app>
       <AppBarTop v-if="this.$vuetify.breakpoint.lgAndUp" />
-      <AppBarTopSm v-else-if="this.$vuetify.breakpoint.smAndDown" />
-      <AppBarTopMdSm v-else />
+      <AppBarTopSm
+        v-else-if="
+          this.$vuetify.breakpoint.smAndDown ||
+          this.$vuetify.breakpoint.mobileBreakpoint
+        "
+      />
     </v-app-bar>
     <v-app-bar style="margin-top: 55px" :clipped-left="clipped" fixed app>
       <AppBarBaixo v-if="this.$vuetify.breakpoint.lgAndUp" />
-      <AppBarBaixoSm v-else-if="this.$vuetify.breakpoint.smAndDown" />
-      <AppBarBaixoMdSm v-else />
+
+      <AppBarBaixoSm
+        v-else-if="
+          this.$vuetify.breakpoint.smAndDown ||
+          this.$vuetify.breakpoint.mobileBreakpoint
+        "
+      />
     </v-app-bar>
     <v-main>
       <Nuxt />
     </v-main>
-
-    <!-- <v-footer :absolute="!fixed" app>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
-    </v-footer> -->
   </v-app>
 </template>
 

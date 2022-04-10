@@ -1,6 +1,6 @@
 <template>
   <v-row wrap>
-    <v-col>
+    <v-col >
       <v-row justify="center">
         <img
           width="90%"
