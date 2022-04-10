@@ -7,8 +7,8 @@
     </v-app-bar>
     <v-app-bar style="margin-top: 55px" :clipped-left="clipped" fixed app>
       <AppBarBaixo v-if="this.$vuetify.breakpoint.lgAndUp" />
-      <AppBarBaixoMdSm v-else />
       <AppBarBaixoSm v-else-if="this.$vuetify.breakpoint.smAndDown" />
+      <AppBarBaixoMdSm v-else />
     </v-app-bar>
     <v-main>
       <Nuxt />
