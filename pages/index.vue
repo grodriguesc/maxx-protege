@@ -10,6 +10,7 @@
         this.$vuetify.breakpoint.mobileBreakpoint
       "
     ></page-small>
+    <page-medium v-else></page-medium>
   </div>
 </template>
 
