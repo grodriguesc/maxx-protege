@@ -501,7 +501,7 @@ export default {
 }
 
 .quem-somos {
-  text-align: right;
+  text-align: justify;
   margin-right: -30%;
 }
 .bg {

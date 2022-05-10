@@ -1,6 +1,6 @@
 <template>
   <v-row justify="center" style="color: #01228c">
-    <v-col cols="2" class="py-5 mt-2">
+    <v-col cols="2" class="py-5 mt-3">
       <v-btn
         class="ml-2"
         style="background: #002cba"
@@ -17,7 +17,7 @@
       </v-btn>
     </v-col>
 
-    <v-col cols="2" class="py-5 mt-2">
+    <v-col cols="2" class="py-5 mt-3">
       <v-btn
         class="ml-2"
         style="background: #002cba"
@@ -34,7 +34,7 @@
       </v-btn>
     </v-col>
 
-    <v-col cols="2" class="py-5 mt-2">
+    <v-col cols="2" class="py-5 mt-3">
       <v-btn
         class="ml-2"
         style="background: #002cba"
@@ -47,8 +47,8 @@
       </v-btn>
     </v-col>
 
-    <v-col cols="5" class="py-5">
-      <img src="~/static/icons/max-icon.svg" />
+    <v-col align="center" cols="4" class="py-5">
+      <img class="mt-2" height="70%" src="~/static/icons/max-icon.svg" />
     </v-col>
   </v-row>
 </template>

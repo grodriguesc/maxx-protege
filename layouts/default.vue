@@ -1,23 +1,13 @@
 <template>
   <v-app>
     <v-app-bar color="#FF6623" :clipped-left="clipped" fixed app>
-      <AppBarTop v-if="this.$vuetify.breakpoint.lgAndUp" />
-      <AppBarTopSm
-        v-else-if="
-          this.$vuetify.breakpoint.smAndDown ||
-          this.$vuetify.breakpoint.mobileBreakpoint
-        "
-      />
+      <AppBarTop v-if="this.windowWidth >= 1879" />
+      <AppBarTopSm v-else-if="this.windowWidth <= 768" />
       <app-bar-top-md-sm v-else></app-bar-top-md-sm>
     </v-app-bar>
     <v-app-bar style="margin-top: 55px" :clipped-left="clipped" fixed app>
-      <AppBarBaixo v-if="this.$vuetify.breakpoint.lgAndUp" />
-      <AppBarBaixoSm
-        v-else-if="
-          this.$vuetify.breakpoint.smAndDown ||
-          this.$vuetify.breakpoint.mobileBreakpoint
-        "
-      />
+      <AppBarBaixo v-if="this.windowWidth >= 1879" />
+      <AppBarBaixoSm v-else-if="this.windowWidth <= 768" />
       <app-bar-baixo-md-sm v-else></app-bar-baixo-md-sm>
     </v-app-bar>
     <v-main>
@@ -52,6 +42,12 @@ export default {
       right: true,
       rightDrawer: false,
       title: 'Vuetify.js',
+      windowWidth: window.innerWidth,
+    }
+  },
+  mounted() {
+    window.onresize = () => {
+      this.windowWidth = window.innerWidth
     }
   },
 }

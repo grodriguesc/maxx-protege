@@ -1,13 +1,13 @@
 <template>
   <v-col align="center">
     <v-row justify="center" style="z-index: 0">
-      <v-col cols="5" style="z-index: 1" class="mt-5">
+      <v-col cols="6" style="z-index: 1" class="mt-5">
         <img
           class="mt-5 maxx-funcionarios"
           src="~/static/images/maxx-funcionarios.png"
         />
       </v-col>
-      <v-col cols="3" class="mt-5 quem-somos">
+      <v-col cols="4" class="mt-5 ml-5 quem-somos">
         <h1 style="color: #002cba">Quem somos?</h1>
         <p class="mt-4" style="color: #002cba; font-size: 16px">
           Somos uma <b>Associação</b> nascida em Blumenau, totalmente focada no
@@ -29,7 +29,11 @@
       </v-col>
     </v-row>
     <v-row justify="center" style="z-index: 1; margin-top: 10%">
-      <img src="~/static/images/banner-beneficios-md.png" style="z-index: 1" />
+      <img
+        width="100%"
+        src="~/static/images/banner-beneficios-md.png"
+        style="z-index: 1"
+      />
     </v-row>
     <v-row justify="center" style="margin-top: 10%">
       <v-col cols="5">
@@ -424,11 +428,13 @@ export default {
 
 <style scoped>
 .quem-somos {
-  text-align: right;
+  text-align: justify;
 }
 .bg {
   background: url('../static/images/background-guincho-md.png') no-repeat center
     center;
+  background-size: 100% 100%;
+  margin-top: 5%;
   position: relative;
   z-index: 2 !important;
 }
