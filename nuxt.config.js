@@ -6,7 +6,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: '%s - Seguros para automóveis',
+    titleTemplate: '%s - Proteção Veicular',
     title: 'Maxx Protege',
     htmlAttrs: {
       lang: 'en',
