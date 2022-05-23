@@ -1,6 +1,6 @@
 <template>
   <v-col cols="12" style="color: #fff" align="center">
-    <v-row justify="center"> Assistência 24h: telefone </v-row>
+    <v-row justify="center"> Assistência 24h: 0800 917 0050 </v-row>
     <v-row justify="center">
       <div class="mr-3">
         <v-icon> mdi-account-outline </v-icon> Área do associado

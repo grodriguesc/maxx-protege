@@ -1,51 +1,19 @@
 <template>
   <v-row justify="center" class="ml-0 pl-0">
     <v-col class="ma-0 pa-0" align="center">
-      <v-row justify="center" style="z-index: 0">
-        <v-col cols="2" style="z-index: 0">
-          <img
-            class="arrow-left"
-            width="27.5%"
-            src="~/static/images/arrow.svg"
-          />
+      <v-row class="bg-home">
+        <v-col cols="3"></v-col>
+        <v-col style="text-align: left" align-self="center" cols="6">
+          <h1 style="font-size: 90px; color: #002cba">Proteção</h1>
+          <h1 style="font-size: 90px; color: #002cba">Veicular</h1>
+          <h2 style="color: #002cba; font-weight: 400">
+            mais completa e com o <br />
+            melhor custo benefício!
+          </h2>
+          <v-btn class="white--text mt-3" color="#FE652C"
+            >Faça uma cotação</v-btn
+          >
         </v-col>
-        <v-col cols="4" style="z-index: 1" class="mt-5 mr-5">
-          <img
-            class="mt-5 maxx-funcionarios"
-            src="~/static/images/maxx-funcionarios.png"
-          />
-        </v-col>
-        <v-col cols="3" class="mt-5 ml-5 quem-somos" style="">
-          <h1 style="color: #002cba">Quem somos?</h1>
-          <p class="mt-4" style="color: #002cba; font-size: 19px">
-            Somos uma <b>Associação</b> nascida em Blumenau, totalmente focada
-            no bom relacionamento e economia do associado, levando segurança e
-            bem estar à nível nacional.
-          </p>
-          <p class="mt-4" style="color: #002cba; font-size: 19px">
-            Abrimos as portas para todos que acreditam, assim como nós, que
-            possam ter a oportunidade de possuir uma <b>proteção veicular</b> a
-            um preço acessível, com isso, a
-            <b>única avaliação feita é do veículo</b>, não considerando o perfil
-            do condutor nem consultas de crivo (SERASA/SPC).
-          </p>
-          <p class="mt-4" style="color: #002cba; font-size: 19px">
-            Sendo assim, o nosso compromisso de garantir proteção e
-            tranquilidade é com você, associado, desempenhando um papel em
-            conjunto através da agilidade, qualidade e confiança, passa assim
-            viver a vida que precisa.
-          </p>
-        </v-col>
-        <v-col style="z-index: 0">
-          <img
-            class="arrow-right"
-            width="27.5%"
-            src="~/static/images/arrow.svg"
-          />
-        </v-col>
-      </v-row>
-      <v-row id="beneficios" justify="center" style="z-index: 1">
-        <img src="~/static/images/banner-beneficios.png" style="z-index: 1" />
       </v-row>
       <v-row id="cotacao" justify="center" class="mt-5">
         <v-col cols="4">
@@ -65,26 +33,31 @@
 
               <v-col>
                 <b>Nome:</b>
-                <v-text-field outlined></v-text-field>
+                <v-text-field v-model="mailInfo.name" outlined></v-text-field>
               </v-col>
 
               <v-col>
-                <b>Cidade ou Bairro:</b>
-                <v-text-field outlined></v-text-field>
+                <b>Cidade:</b>
+                <v-text-field v-model="mailInfo.city" outlined></v-text-field>
+              </v-col>
+
+              <v-col>
+                <b>Bairro:</b>
+                <v-text-field  v-model="mailInfo.neighborhood" outlined></v-text-field>
               </v-col>
 
               <v-col>
                 <b>E-mail:</b>
-                <v-text-field outlined></v-text-field>
+                <v-text-field v-model="mailInfo.mail" outlined></v-text-field>
               </v-col>
 
               <v-col>
                 <b>Whatsapp:</b>
-                <v-text-field outlined></v-text-field>
+                <v-text-field v-model="mailInfo.whatsapp" outlined></v-text-field>
               </v-col>
-              <v-col>
+              <v-col cols="8">
                 <v-row justify="center" class="mb-2">
-                  <v-btn color="#FE652C" large class="white--text"
+                  <v-btn @click="sendMail()" color="#FE652C" large block class="white--text"
                     >Enviar Dados</v-btn
                   >
                 </v-row>
@@ -99,7 +72,7 @@
         >
           <img
             style="z-index: 1"
-            src="~/static/images/banner-vem-de-maxx.png"
+            src="~/static/images/banner-vem-de-maxx.svg"
           />
         </v-col>
       </v-row>
@@ -107,17 +80,17 @@
       <v-row justify="center" class="bg" id="curiosidades">
         <v-col align-self="center" cols="6">
           <v-row justify="left">
-            <h1>
+            <h1 style="text-align: left">
               <i class="white--text" style="font-size: 40px">
-                A Maxx tem guincho <br />
-                com km ilimitada
+                Fale com um de nossos <br />
+                representantes!
               </i>
             </h1>
           </v-row>
 
           <v-row justify="left">
             <v-col cols="5" class="white--text">
-              <p style="font-size: 20px">
+              <p style="font-size: 20px; text-align: left">
                 Na Maxx Protege você conta com o serviço de guincho e transporte
                 com quilometragem ilimitada em casos de pane do veículo.
               </p>
@@ -133,9 +106,9 @@
                   )
                 "
                 class="white--text"
-                x-large
+                large
                 color="#FE652C"
-                >Monte seu plano</v-btn
+                >Entre em contato</v-btn
               >
             </v-col>
           </v-row>
@@ -151,23 +124,26 @@
           </v-row>
           <v-row justify="center" class="my-5">
             <v-card
+            id="cardText"
               style="transition: width 1s, height 1s"
               @mouseover="growCard = true"
               @mouseleave="growCard = false"
               :width="growCard == true ? '444px' : '222px'"
-              :height="growCard == true ? '300px' : '234px'"
+              :height="growCard == true ? '350px' : '284px'"
               class="ma-5"
             >
               <div style="color: #f26531">
                 <v-col class="fill-height" align="center">
-                  <img class="mt-5" src="../static/icons/icon-car.png" />
+                  <img class="mt-5" src="../static/icons/icon-car.svg" />
                   <p v-if="showText" class="mt-5">
-                    motorista da rodada para você<br />
-                    voltar protegido para casa quando não<br />
-                    estiver em condições de dirigir
+                     Até 200 mil<br />
+                      contra terceiros
                   </p>
                   <p class="mt-5" style="text-align: center">
-                    Motorista <br />da rodada
+                    <b>
+                      Até 200 mil<br />
+                      contra terceiros
+                    </b>
                   </p>
                 </v-col>
               </div>
@@ -176,11 +152,12 @@
             <v-card
               width="222px"
               class="ma-5"
+              id="cardTex1"
               style="transition: width 1s, height 1s"
               @mouseover="growCard1 = true"
               @mouseleave="growCard1 = false"
               :width="growCard1 == true ? '444px' : '222px'"
-              :height="growCard1 == true ? '300px' : '234px'"
+              :height="growCard1 == true ? '350px' : '284px'"
             >
               <div style="color: #f26531">
                 <v-col class="fill-height" align="center">
@@ -191,8 +168,11 @@
                     ou elétrica.
                   </p>
                   <p class="mt-5" style="text-align: center">
-                    Guincho e transporte com <br />
-                    km ilimitada para pane
+                    <b>
+                      Guincho e <br />
+                      transporte com km <br />
+                      ilimitada para pane
+                    </b>
                   </p>
                 </v-col>
               </div>
@@ -201,11 +181,12 @@
             <v-card
               width="222px"
               class="ma-5"
+              id="cardText2"
               style="transition: width 1s, height 1s"
               @mouseover="growCard2 = true"
               @mouseleave="growCard2 = false"
               :width="growCard2 == true ? '444px' : '222px'"
-              :height="growCard2 == true ? '300px' : '234px'"
+              :height="growCard2 == true ? '350px' : '284px'"
             >
               <div style="color: #f26531">
                 <v-col class="fill-height" align="center">
@@ -215,7 +196,7 @@
                     o câmbio do seu carro
                   </p>
                   <p class="mt-5" style="text-align: center">
-                    Proteção para <br />motor e câmbio
+                    <b> Proteção para <br />motor e câmbio </b>
                   </p>
                 </v-col>
               </div>
@@ -224,11 +205,12 @@
             <v-card
               width="222px"
               class="ma-5"
+              id="cardText3"
               style="transition: width 1s, height 1s"
               @mouseover="growCard3 = true"
               @mouseleave="growCard3 = false"
               :width="growCard3 == true ? '444px' : '222px'"
-              :height="growCard3 == true ? '300px' : '234px'"
+              :height="growCard3 == true ? '350px' : '284px'"
             >
               <div style="color: #f26531">
                 <v-col class="fill-height" align="center">
@@ -237,25 +219,84 @@
                     100% da tabela FIPE no seu veículo
                   </p>
                   <p class="mt-5" style="text-align: center">
-                    100% da tabela <br />FIPE
+                    <b> 100% da tabela <br />FIPE </b>
                   </p>
                 </v-col>
               </div>
             </v-card>
           </v-row>
+          <v-row>
+        <v-col>
+          <v-btn @click="
+                openLink(
+                  'https://api.whatsapp.com/send/?phone=554733042028&text&app_absent=0'
+                )
+              " class="white--text" color="#FE652C">Fale com um representante</v-btn>
+        </v-col>
+          </v-row>
         </v-col>
       </v-row>
+
+      <v-row id="beneficios" justify="center" style="z-index: 1">
+        <img src="~/static/images/banner-beneficios.png" style="z-index: 1" />
+      </v-row>
+
+      <v-row justify="center" style="z-index: 0">
+        <v-col cols="2" style="z-index: 0">
+          <img
+            class="arrow-left"
+            width="27.5%"
+            src="~/static/images/arrow.svg"
+          />
+        </v-col>
+        <v-col cols="4" style="z-index: 1" class="mt-5 mr-5">
+          <img
+            class="mt-5 maxx-funcionarios"
+            src="~/static/images/maxx-funcionarios-banner.png"
+          />
+        </v-col>
+        <v-col cols="3" class="mt-5 ml-5 quem-somos" style="">
+          <h1 style="color: #002cba">Quem somos?</h1>
+          <p class="mt-4" style="color: #002cba; font-size: 18px">
+            Somos uma <b>Associação</b> nascida em Blumenau, totalmente focada
+            no bom relacionamento e economia do associado, levando segurança e
+            bem estar à nível nacional.
+          </p>
+          <p class="mt-4" style="color: #002cba; font-size: 18px">
+            Abrimos as portas para todos que acreditam, assim como nós, que
+            possam ter a oportunidade de possuir uma <b>proteção veicular</b> a
+            um preço acessível, com isso, a
+            <b>única avaliação feita é do veículo</b>, não considerando o perfil
+            do condutor nem consultas de crivo (SERASA/SPC).
+          </p>
+          <p class="mt-4" style="color: #002cba; font-size: 18px">
+            Sendo assim, o nosso compromisso de garantir proteção e
+            tranquilidade é com você, associado, desempenhando um papel em
+            conjunto através da agilidade, qualidade e confiança, passa assim
+            viver a vida que precisa.
+          </p>
+        </v-col>
+        <v-col style="z-index: 0">
+          <img
+            class="arrow-right"
+            width="27.5%"
+            src="~/static/images/arrow.svg"
+          />
+        </v-col>
+      </v-row>
+
       <v-row class="bg-rodape mb-0 pb-0" justify="center">
+        <v-col class="my-3" cols="12">
+          <h2 class="white--text" style="font-size: 42px">
+            <i>Onde nos encontrar?</i>
+          </h2>
+        </v-col>
         <v-col cols="2" align="center">
           <img src="../static/icons/maxx-icon-footer.png" />
         </v-col>
-        <v-divider
-          inset
-          vertical
-          style="border-color: #fff !important"
-        ></v-divider>
+
         <v-col cols="2" align="center" class="mt-5">
-          <div class="mt-5">
+          <div>
             <v-btn
               class="ml-2 mt-5"
               @click="
@@ -294,11 +335,7 @@
             </v-btn>
           </div>
         </v-col>
-        <v-divider
-          inset
-          vertical
-          style="border-color: #fff !important"
-        ></v-divider>
+
         <v-col cols="2" align="center" class="white--text mt-5">
           <h2 class="mb-3">Matriz - Blumenau/SC</h2>
           <p>
@@ -321,11 +358,7 @@
           </p>
           <p><b>(47) 98474-5597</b> ou <br /><b>(47) 99672-3910</b></p>
         </v-col>
-        <v-divider
-          inset
-          vertical
-          style="border-color: #fff !important"
-        ></v-divider>
+
         <v-col cols="2" align="center">
           <h4 class="mb-3">Blumenau/SC</h4>
           <p>
@@ -334,11 +367,7 @@
           </p>
           <p><b>(47) 99184-5050</b></p>
         </v-col>
-        <v-divider
-          inset
-          vertical
-          style="border-color: #fff !important"
-        ></v-divider>
+
         <v-col cols="2" align="center">
           <h4 class="mb-3">Blumenau/SC</h4>
           <p>
@@ -350,11 +379,7 @@
             <b>(47) 99955-3249</b>
           </p>
         </v-col>
-        <v-divider
-          inset
-          vertical
-          style="border-color: #fff !important"
-        ></v-divider>
+
         <v-col cols="2" align="center">
           <h4 class="mb-3">Brusque/SC</h4>
           <p>
@@ -376,18 +401,14 @@
           <h4 class="mb-3">Indaial/SC</h4>
           <p>
             Av. Manoel Simão, 131 - Sala <br />
-            01 Nações/p>
+            01 Nações</p>
           </p>
           <p>
             <b>(47) 3387-2424</b> ou<br />
             <b>(47) 99142-6211</b> ou <b>98909-5401</b>
           </p>
         </v-col>
-        <v-divider
-          inset
-          vertical
-          style="border-color: #fff !important"
-        ></v-divider>
+
         <v-col cols="2" align="center">
           <h4 class="mb-3">Ituporanga/SC</h4>
           <p>
@@ -399,11 +420,7 @@
             <b>(47) 99969-1189</b>
           </p>
         </v-col>
-        <v-divider
-          inset
-          vertical
-          style="border-color: #fff !important"
-        ></v-divider>
+
         <v-col cols="2" align="center">
           <h4 class="mb-3">Jaraguá/SC</h4>
           <p>
@@ -415,11 +432,7 @@
             <b>(47) 99674-0015</b>
           </p>
         </v-col>
-        <v-divider
-          inset
-          vertical
-          style="border-color: #fff !important"
-        ></v-divider>
+
         <v-col cols="2" align="center">
           <h4 class="mb-3">Taió/SC</h4>
           <p>
@@ -449,37 +462,52 @@ export default {
       showText1: false,
       showText2: false,
       showText3: false,
+      mailInfo: {
+        name: '',
+        city: '',
+        neighborhood: '',
+        email: '',
+        whatsapp: '',
+      }
     }
   },
-  watch: {
+watch: {
     growCard(oldVal) {
-      if (oldVal === true) {
-        setTimeout(() => (this.showText = true), 500)
-      } else this.showText = false
+      if(document.getElementById("cardText").style.height != "350px"){
+        this.showText = true
+      }else{
+        this.showText = false
+      }
     },
     growCard1(oldVal) {
-      if (oldVal === true) {
-        setTimeout(() => (this.showText1 = true), 500)
-      } else this.showText1 = false
+     if(document.getElementById("cardText1").style.height != "350px"){
+        this.showText1 = true
+      }else{
+        this.showText1 = false
+      }
     },
     growCard2(oldVal) {
-      if (oldVal === true) {
-        setTimeout(() => (this.showText2 = true), 500)
-      } else this.showText2 = false
+      if(document.getElementById("cardText2").style.height != "350px"){
+        this.showText2 = true
+      }else{
+        this.showText2 = false
+      }
     },
     growCard3(oldVal) {
-      if (oldVal === true) {
-        setTimeout(() => (this.showText3 = true), 500)
-      } else this.showText3 = false
+      if(document.getElementById("cardText3").style.height != "350px"){
+        this.showText3 = true
+      }else{
+        this.showText3 = false
+      }
     },
   },
   methods: {
     openLink(url) {
       window.open(url, '_blank')
     },
-    openEmail() {
+    sendMail() {
       window.open(
-        'mailto:gerenciacomercial@maxxprotege.com.br?subject=Subject&body=message%20goes%20here'
+        `mailto:gerenciacomercial@maxxprotege.com.br?subject=Cotação%20Site&body=Nome:%20${this.mailInfo.name}%20Cidade:%20${this.mailInfo.city}%Bairro:%20${this.mailInfo.neighborhood}%E-mail:%20${this.mailInfo.mail}%20Nome:%20${this.mailInfo.whatsapp}`
       )
     },
   },
@@ -507,6 +535,12 @@ export default {
 .bg {
   background: url('../static/images/banner-guincho.png') no-repeat center center;
   height: 20%;
+  position: relative;
+  z-index: 2 !important;
+}
+.bg-home {
+  background: url('../static/images/bannerHome.png') no-repeat center center;
+  height: 15%;
   position: relative;
   z-index: 2 !important;
 }

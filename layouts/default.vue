@@ -6,9 +6,7 @@
       <app-bar-top-md-sm v-else></app-bar-top-md-sm>
     </v-app-bar>
     <v-app-bar style="margin-top: 55px" :clipped-left="clipped" fixed app>
-      <AppBarBaixo v-if="this.windowWidth >= 1879" />
-      <AppBarBaixoSm v-else-if="this.windowWidth <= 768" />
-      <app-bar-baixo-md-sm v-else></app-bar-baixo-md-sm>
+      <AppBarBaixoSm v-if="this.windowWidth <= 768" />
     </v-app-bar>
     <v-main>
       <Nuxt />
