@@ -5,12 +5,16 @@
         <v-col cols="3"></v-col>
         <v-col style="text-align: left" align-self="center" cols="6">
           <h1 style="font-size: 90px; color: #002cba">Proteção</h1>
-          <h1 style="font-size: 90px; color: #002cba">Veicular</h1>
+          <h1 style="font-size: 90px; color: #002cba; margin-top: -40px;">Veicular</h1>
           <h2 style="color: #002cba; font-weight: 400">
             mais completa e com o <br />
             melhor custo benefício!
           </h2>
-          <v-btn class="white--text mt-3" color="#FE652C"
+          <v-btn @click="
+                  openLink(
+                    'https://api.whatsapp.com/send/?phone=554733042028&text&app_absent=0'
+                  )
+                " class="white--text mt-3" color="#FE652C"
             >Faça uma cotação</v-btn
           >
         </v-col>
@@ -19,7 +23,7 @@
         <v-col cols="4">
           <v-card>
             <div>
-              <h2 style="color: #002cba; text-align: center">
+              <h2 class="pt-5" style="color: #002cba; text-align: center">
                 Faça uma cotação online
               </h2>
             </div>
@@ -78,7 +82,7 @@
       </v-row>
 
       <v-row justify="center" class="bg" id="curiosidades">
-        <v-col align-self="center" cols="6">
+        <v-col align-self="center" cols="10">
           <v-row justify="left">
             <h1 style="text-align: left">
               <i class="white--text" style="font-size: 40px">
@@ -89,16 +93,15 @@
           </v-row>
 
           <v-row justify="left">
-            <v-col cols="5" class="white--text">
+            <v-col cols="5" style="margin-left: -1%" class="white--text">
               <p style="font-size: 20px; text-align: left">
-                Na Maxx Protege você conta com o serviço de guincho e transporte
-                com quilometragem ilimitada em casos de pane do veículo.
+                Para um atendimento ainda mais personalizado, entre em contato com um de nossos representantes via WhatsApp!
               </p>
             </v-col>
           </v-row>
 
           <v-row justify="left">
-            <v-col cols="5">
+            <v-col cols="3">
               <v-btn
                 @click="
                   openLink(
@@ -243,7 +246,7 @@
 
       <v-row  style="z-index: 0">
         <v-col cols="2"></v-col>
-        <v-col cols="4" style="z-index: 1" class="mt-5 mr-5">
+        <v-col cols="5" style="z-index: 1" class="mt-5 mr-5">
           <img
             class="mt-5 maxx-funcionarios"
             src="~/static/images/maxx-funcionarios-banner.png"
@@ -279,11 +282,11 @@
             <i>Onde nos encontrar?</i>
           </h2>
         </v-col>
-        <v-col cols="2" align="center">
+        <v-col cols="3" align="center">
           <img src="../static/icons/maxx-icon-footer.png" />
         </v-col>
 
-        <v-col cols="2" align="center" class="mt-5">
+        <v-col cols="4" align="center" class="mt-5 ml-5">
           <div>
             <v-btn
               class="ml-2 mt-5"
@@ -324,7 +327,7 @@
           </div>
         </v-col>
 
-        <v-col cols="2" align="center" class="white--text mt-5">
+        <v-col cols="3" align="center" class="white--text mt-5">
           <h2 class="mb-3">Matriz - Blumenau/SC</h2>
           <p>
             Rod. Paul Fritz Kuehnrich, 990 <br />
@@ -332,13 +335,13 @@
           </p>
           <h2>(47) 3304-2028</h2>
         </v-col>
-        <v-col cols="8">
-          <v-divider inset style="border-color: #fff !important"></v-divider>
+        <v-col align-self="center" cols="11">
+          <v-divider style="border-color: #fff !important"></v-divider>
         </v-col>
       </v-row>
 
       <v-row id="localidades" class="bg-rodape white--text" justify="center">
-        <v-col cols="2" align="center">
+        <v-col cols="3" align="center">
           <h4 class="mb-3">Blumenau/SC</h4>
           <p>
             R. Dr. Pedro Zimmermann, 2371 <br />
@@ -347,7 +350,7 @@
           <p><b>(47) 98474-5597</b> ou <br /><b>(47) 99672-3910</b></p>
         </v-col>
 
-        <v-col cols="2" align="center">
+        <v-col cols="3" align="center">
           <h4 class="mb-3">Blumenau/SC</h4>
           <p>
             R. Francisco Vahldieck, 2579 <br />
@@ -356,10 +359,10 @@
           <p><b>(47) 99184-5050</b></p>
         </v-col>
 
-        <v-col cols="2" align="center">
+        <v-col cols="3" align="center">
           <h4 class="mb-3">Blumenau/SC</h4>
           <p>
-            R. Amazona, 4160 - Sala 02 <br />
+            R. Amazonas, 4160 - Sala 02 <br />
             Garcia
           </p>
           <p>
@@ -368,7 +371,7 @@
           </p>
         </v-col>
 
-        <v-col cols="2" align="center">
+        <v-col cols="3" align="center">
           <h4 class="mb-3">Brusque/SC</h4>
           <p>
             R. Alberto Knop, 100 <br />
@@ -379,13 +382,13 @@
             <b>(47) 98839-9590</b> ou <b>99672-38188</b>
           </p>
         </v-col>
-        <v-col cols="8">
-          <v-divider inset style="border-color: #fff !important"></v-divider>
+        <v-col cols="11">
+          <v-divider  style="border-color: #fff !important"></v-divider>
         </v-col>
       </v-row>
 
       <v-row class="bg-rodape white--text pb-5" justify="center">
-        <v-col cols="2" align="center">
+        <v-col cols="3" align="center">
           <h4 class="mb-3">Indaial/SC</h4>
           <p>
             Av. Manoel Simão, 131 - Sala <br />
@@ -397,7 +400,7 @@
           </p>
         </v-col>
 
-        <v-col cols="2" align="center">
+        <v-col cols="3" align="center">
           <h4 class="mb-3">Ituporanga/SC</h4>
           <p>
             R. Vergílio Scheller, 2140 - Sala 03 <br />
@@ -409,7 +412,7 @@
           </p>
         </v-col>
 
-        <v-col cols="2" align="center">
+        <v-col cols="3" align="center">
           <h4 class="mb-3">Jaraguá/SC</h4>
           <p>
             R. Carlos Eggert, 171 <br />
@@ -421,7 +424,7 @@
           </p>
         </v-col>
 
-        <v-col cols="2" align="center">
+        <v-col cols="3" align="center">
           <h4 class="mb-3">Taió/SC</h4>
           <p>
             R. Coronel Feddersen, 2120 <br />

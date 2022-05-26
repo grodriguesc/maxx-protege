@@ -5,12 +5,16 @@
         <v-col cols="3"></v-col>
         <v-col style="text-align: left" align-self="center" cols="6">
           <h1 style="font-size: 90px; color: #002cba">Proteção</h1>
-          <h1 style="font-size: 90px; color: #002cba">Veicular</h1>
+          <h1 style="font-size: 90px; color: #002cba; margin-top: -40px;">Veicular</h1>
           <h2 style="color: #002cba; font-weight: 400">
             mais completa e com o <br />
             melhor custo benefício!
           </h2>
-          <v-btn class="white--text mt-3" color="#FE652C"
+          <v-btn @click="
+                  openLink(
+                    'https://api.whatsapp.com/send/?phone=554733042028&text&app_absent=0'
+                  )
+                " class="white--text mt-3" color="#FE652C"
             >Faça uma cotação</v-btn
           >
         </v-col>
@@ -19,7 +23,7 @@
         <v-col cols="4">
           <v-card>
             <div>
-              <h2 style="color: #002cba; text-align: center">
+              <h2 class="pt-5" style="color: #002cba; text-align: center">
                 Faça uma cotação online
               </h2>
             </div>
@@ -78,7 +82,7 @@
       </v-row>
 
       <v-row justify="center" class="bg" id="curiosidades">
-        <v-col align-self="center" cols="6">
+        <v-col align-self="center" cols="7">
           <v-row justify="left">
             <h1 style="text-align: left">
               <i class="white--text" style="font-size: 40px">
@@ -371,7 +375,7 @@
         <v-col cols="2" align="center">
           <h4 class="mb-3">Blumenau/SC</h4>
           <p>
-            R. Amazona, 4160 - Sala 02 <br />
+            R. Amazonas, 4160 - Sala 02 <br />
             Garcia
           </p>
           <p>
@@ -517,13 +521,13 @@ watch: {
 <style scoped>
 .arrow-left {
   position: fixed;
-  left: -3%;
+  left: -13%;
   top: 75px;
   z-index: 0;
 }
 .arrow-right {
   position: fixed;
-  right: -4%;
+  right: -14%;
   top: 75px;
   z-index: 0;
 }

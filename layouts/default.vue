@@ -1,12 +1,18 @@
 <template>
-  <v-app>
+  <v-app class="v-app">
     <v-app-bar color="#FF6623" :clipped-left="clipped" fixed app>
       <AppBarTop v-if="this.windowWidth >= 1879" />
       <AppBarTopSm v-else-if="this.windowWidth <= 768" />
       <app-bar-top-md-sm v-else></app-bar-top-md-sm>
     </v-app-bar>
-    <v-app-bar style="margin-top: 55px" :clipped-left="clipped" fixed app>
-      <AppBarBaixoSm v-if="this.windowWidth <= 768" />
+    <v-app-bar
+      v-if="this.windowWidth <= 768"
+      style="margin-top: 55px"
+      :clipped-left="clipped"
+      fixed
+      app
+    >
+      <AppBarBaixoSm />
     </v-app-bar>
     <v-main>
       <Nuxt />
@@ -50,3 +56,29 @@ export default {
   },
 }
 </script>
+
+<style>
+@font-face {
+  font-family: Gotham;
+  src: url('static/fonts/Gotham-Font/Gotham-Font/Gotham-Light.otf')
+    format('opentype');
+}
+
+@font-face {
+  font-family: Gotham;
+  font-weight: bold;
+  src: url('static/fonts/Gotham-Font/Gotham-Font/Gotham-Bold.otf')
+    format('opentype');
+}
+
+@font-face {
+  font-family: Gotham;
+  font-weight: normal;
+  src: url('static/fonts/Gotham-Font/Gotham-Font/Gotham-Light.otf')
+    format('opentype');
+}
+
+.v-app {
+  font-family: Gotham;
+}
+</style>

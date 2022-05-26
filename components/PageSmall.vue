@@ -2,15 +2,19 @@
   <v-row wrap>
     <v-col>
       <v-row class="bg-home">
-        <v-col cols="3"></v-col>
-        <v-col style="text-align: left" align-self="center" cols="6">
+        <v-col style="margin-left: -15%" cols="3"></v-col>
+        <v-col style="text-align: left" align-self="left" cols="7">
           <h1 style="font-size: 48px; color: #002cba">Proteção</h1>
           <h1 style="font-size: 48px; color: #002cba">Veicular</h1>
           <h2 style="color: #002cba; font-weight: 400; font-size: 19px">
             mais completa e com o <br />
             melhor custo benefício!
           </h2>
-          <v-btn class="white--text mt-3" color="#FE652C"
+          <v-btn @click="
+                  openLink(
+                    'https://api.whatsapp.com/send/?phone=554733042028&text&app_absent=0'
+                  )
+                " class="white--text mt-3" color="#FE652C"
             >Faça uma cotação</v-btn
           >
         </v-col>
@@ -20,7 +24,7 @@
         <v-col cols="10">
           <v-card>
             <div>
-              <h2 style="color: #002cba; text-align: center">
+              <h2 class="pt-5" style="color: #002cba; text-align: center">
                 Faça uma cotação online
               </h2>
             </div>
@@ -109,48 +113,104 @@
             <h1 style="font-size: 40px; color: #002cba">Na Maxx você tem</h1>
           </v-row>
           <v-row justify="center">
-            <v-card width="170px" class="ma-5">
+                        <v-card
+              style="transition: width 1s, height 1s"
+              id="cardText"
+              @mouseover="growCard = true"
+              @mouseleave="growCard = false"
+              :width="growCard == true ? '444px' : '222px'"
+              :height="growCard == true ? '350px' : '284px'"
+              class="ma-5"
+            >
               <div style="color: #f26531">
                 <v-col class="fill-height" align="center">
                   <img class="mt-5" src="../static/icons/icon-car.svg" />
+                  <p v-if="showText" class="mt-5">
+                     Até 200 mil de cobertura<br />
+                      contra terceiros
+                  </p>
                   <p class="mt-5" style="text-align: center">
-                    Até 200 mil <br> contra terceiros
+                    <b>
+                      Até 200 mil<br />
+                      contra terceiros
+                    </b>
                   </p>
                 </v-col>
               </div>
             </v-card>
 
-            <v-card width="170px" class="ma-5">
+            <v-card
+              width="222px"
+              id="cardText1"
+              class="ma-5"
+              style="transition: width 1s, height 1s"
+              @mouseover="growCard1 = true"
+              @mouseleave="growCard1 = false"
+              :width="growCard1 == true ? '444px' : '222px'"
+              :height="growCard1 == true ? '350px' : '284px'"
+            >
               <div style="color: #f26531">
                 <v-col class="fill-height" align="center">
                   <img class="mt-5" src="../static/icons/icon-guincho.png" />
+                  <p v-if="showText1" class="mt-5">
+                    Quilometragem ilimitada na<br />
+                    região Sul do Brasil para pane mecânica<br />
+                    ou elétrica.
+                  </p>
                   <p class="mt-5" style="text-align: center">
-                    Guincho e transporte com km ilimitada para pane
+                    <b>
+                      Guincho e <br />
+                      transporte com km <br />
+                      ilimitada para pane
+                    </b>
                   </p>
                 </v-col>
               </div>
             </v-card>
           </v-row>
           <v-row justify="center">
-            <v-card width="170px" class="ma-5">
+                        <v-card
+              width="222px"
+              id="cardText2"
+              class="ma-5"
+              style="transition: width 1s, height 1s"
+              @mouseover="growCard2 = true"
+              @mouseleave="growCard2 = false"
+              :width="growCard2 == true ? '444px' : '222px'"
+              :height="growCard2 == true ? '350px' : '284px'"
+            >
               <div style="color: #f26531">
                 <v-col class="fill-height" align="center">
                   <img class="mt-5" src="../static/icons/icon-motor.png" />
-
+                  <p v-if="showText2" class="mt-5">
+                    Só a maxx tem proteção para <br />
+                    o câmbio do seu carro
+                  </p>
                   <p class="mt-5" style="text-align: center">
-                    Proteção para <br />motor e câmbio
+                    <b> Proteção para <br />motor e câmbio </b>
                   </p>
                 </v-col>
               </div>
             </v-card>
 
-            <v-card width="170px" class="ma-5">
+             <v-card
+              width="222px"
+              id="cardText3"
+              class="ma-5"
+              style="transition: width 1s, height 1s"
+              @mouseover="growCard3 = true"
+              @mouseleave="growCard3 = false"
+              :width="growCard3 == true ? '444px' : '222px'"
+              :height="growCard3 == true ? '350px' : '284px'"
+            >
               <div style="color: #f26531">
                 <v-col class="fill-height" align="center">
                   <img class="mt-5" src="../static/icons/icon-fipe.png" />
-
+                  <p v-if="showText3" class="mt-5">
+                    100% da tabela FIPE no seu veículo
+                  </p>
                   <p class="mt-5" style="text-align: center">
-                    100% da tabela <br />FIPE
+                    <b> 100% da tabela <br />FIPE </b>
                   </p>
                 </v-col>
               </div>
@@ -178,7 +238,7 @@
         <img
           width="90%"
           class="mt-5 maxx-funcionarios"
-          src="~/static/images/maxx-funcionarios.png"
+          src="~/static/images/maxx-funcionarios-small.png"
         />
       </v-row>
 
@@ -262,7 +322,7 @@
         <v-col align="center">
           <h4 class="mb-3">Blumenau/SC</h4>
           <p style="font-size: 12px">
-            R. Amazona, 4160 - Sala 02 <br />
+            R. Amazonas, 4160 - Sala 02 <br />
             Garcia
           </p>
           <p style="font-size: 12px">
@@ -390,6 +450,55 @@
 <script>
 export default {
   name: 'IndexPage',
+    data() {
+    return {
+      growCard: false,
+      growCard1: false,
+      growCard2: false,
+      growCard3: false,
+      showText: false,
+      showText1: false,
+      showText2: false,
+      showText3: false,
+      mailInfo: {
+        name: '',
+        city: '',
+        neighborhood: '',
+        email: '',
+        whatsapp: '',
+      }
+    }
+  },
+  watch: {
+    growCard(oldVal) {
+      if(document.getElementById("cardText").style.height != "350px"){
+        this.showText = true
+      }else{
+        this.showText = false
+      }
+    },
+    growCard1(oldVal) {
+     if(document.getElementById("cardText1").style.height != "350px"){
+        this.showText1 = true
+      }else{
+        this.showText1 = false
+      }
+    },
+    growCard2(oldVal) {
+      if(document.getElementById("cardText2").style.height != "350px"){
+        this.showText2 = true
+      }else{
+        this.showText2 = false
+      }
+    },
+    growCard3(oldVal) {
+      if(document.getElementById("cardText3").style.height != "350px"){
+        this.showText3 = true
+      }else{
+        this.showText3 = false
+      }
+    },
+  },
   methods: {
     openLink(url) {
       window.open(url, '_blank')
