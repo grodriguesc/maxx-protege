@@ -1,13 +1,13 @@
 <template>
   <v-app class="v-app">
-    <v-app-bar color="#FF6623" :clipped-left="clipped" fixed app>
+    <v-app-bar height="70px" color="#FF6623" :clipped-left="clipped" fixed app>
       <AppBarTop v-if="this.windowWidth >= 1879" />
       <AppBarTopSm v-else-if="this.windowWidth <= 768" />
       <app-bar-top-md-sm v-else></app-bar-top-md-sm>
     </v-app-bar>
     <v-app-bar
       v-if="this.windowWidth <= 768"
-      style="margin-top: 55px"
+      style="margin-top: 70px"
       :clipped-left="clipped"
       fixed
       app

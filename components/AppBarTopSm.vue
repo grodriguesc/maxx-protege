@@ -1,10 +1,10 @@
 <template>
-  <v-col cols="12" style="color: #fff" align="center">
-    <v-row justify="center">
-      Assistência 24h: &nbsp; <a href="tel://0800 917 0050"> 0800 917 0050</a>
-    </v-row>
-    <v-row justify="center">
-      <div class="mr-3">
+  <div style="color: #fff; width: 100%;">
+   
+      <v-row class=" ma-0" justify="center">Assistência 24h: &nbsp; <a href="tel://0800 917 0050"> 0800 917 0050</a></v-row>
+    
+     <v-row  justify="center" class="pb-3 ma-0">
+        <div class="mr-3">
         <v-icon> mdi-account-outline </v-icon>
         <a
           style="color: #fff !important"
@@ -21,8 +21,9 @@
           Precisa de ajuda?
         </a>
       </div>
-    </v-row>
-  </v-col>
+     </v-row>
+    
+  </div>
 </template>
 
 <style>
